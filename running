@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+
+##
+## Demostrates the use of os.environ
+## Prone to errors if Environment Variable is not set
+##
+
+import os
+
+stage = os.environ["STAGE"].upper()
+
+output = f"We're running in {stage}"
+
+if stage.startswith("PROD"):
+    output = "DANGER!!! - " + output
+
+print(output)
