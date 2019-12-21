@@ -8,4 +8,5 @@
 
 import sys
 
-print(f"First Argument: {sys.argv[0]}")
+print(f"Positional Argument: {sys.argv[1:]}")
+print(f"First Arguement: {sys.argv[1]}")
