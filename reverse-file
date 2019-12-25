@@ -2,7 +2,26 @@
 
 import argparse
 
-parser = argparse.ArguementParser()
+## Initiate the parser object ##
+parser = argparse.ArgumentParser(description='Read a file in reverse')
+
+## Add arguments to the parser ##
 parser.add_argument('filename', help='The File To Read')
+parser.add_argument('-l', '--limit', type=int, help='The number of lines to read')
+parser.add_argument('-v', '--version', action='version', version='%(prog)s 1.0')
+
+## Parse the arguments given on the CLI ##
 args = parser.parse_args()
-print(args)
+
+## Opens FileName given, makes a list of all lines in file, reverses the order of the lines in the list ##
+with open(args.filename) as f:
+    lines = f.readlines()
+    lines.reverse()
+
+## If limist is specified will get lines [0 : LIMIT]
+    if args.limit:
+        lines = lines[:args.limit]
+
+## For each line in the 'list' of lines, remove the \n (line.strip()), and print each line from the end of the line ([::-1])
+    for line in lines:
+        print(line.strip()[::-1])
