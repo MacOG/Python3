@@ -1,1 +1,8 @@
 #!/usr/bin/env python3
+
+import argparse
+
+parser = argparse.ArguementParser()
+parser.add_argument('filename', help='The File To Read')
+args = parser.parse_args()
+print(args)
