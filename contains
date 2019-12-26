@@ -1,1 +1,30 @@
 #!/usr/bin/env python3
+
+import argparse
+
+## Initiate Argument Parser, Provide a Description, and collect a word and assign it to snippet ##
+parser = argparse.ArgumentParser(description="Search's the systems word file for partial/whole word matches")
+parser.add_argument('snippet', help='Partial or whole word string to search for in system word file')
+
+
+## Collects arguments ##
+args = parser.parse_args()
+
+## Lowers cases the word assigned to snippet and re-assigns it to snippet ##
+snippet = args.snippet.lower()
+
+## Opens word file, and assigns all its words to variable "words" ##
+with open('/usr/share/dict/words') as f:
+    words = f.readlines()
+
+matches=[]
+
+## Long hand ##
+#for word in words:
+#    if snippet in word.lower():
+#        matches.append(word)
+#print(matches)
+
+## Short Hand = aka = List Comprehensions ##
+
+print([word.strip() for word in words if snippet in word.lower()])
