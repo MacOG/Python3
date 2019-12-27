@@ -1,1 +1,17 @@
 #!/usr/bin/env python3
+
+message = input("What message would you like to send? ")
+count = input("How many times do you want to see this message? ")
+
+
+if not count:
+    count = int(1)
+else:
+    count = int(count)
+
+def multi_echo(message, count):
+    while count > 0:
+        count -= 1
+        print(message)
+
+multi_echo(message, count)
