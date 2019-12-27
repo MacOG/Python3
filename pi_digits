@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+
+from math import pi
+from os import getenv
+
+digits = int(getenv("DIGITS") or 10)
+
+print(f"PI: {round(pi, digits)}")
